@@ -12,10 +12,9 @@ A full-stack health care platform focused on efficient blood bank management, bu
 | 2023lm70039@wilp.bits-pilani.ac.in  | Vishal Kumar Gupta        | Project Manager, Tester              |
 | 2023lm70037@wilp.bits-pilani.ac.in  | Marathe Gauri Kailas      | User Researcher, Programmer          |
 | 2023lm70040@wilp.bits-pilani.ac.in  | Khan Md. Yaseen           | Technical Analyst, Programmer        |
-| 2023lm70038@wilp.bits-pilani.ac.in  | Reyazuddin Shakina        | User Researcher, Technical Analyst   |
-| 2023lm70041@wilp.bits-pilani.ac.in  | Ashwin Kumar G            | Programmer, Tester                   |
-| —                                   | Sri Lakshmanan M          | Contributor                          |
- 
+| 2023lm70038@wilp.bits-pilani.ac.in  | Ashwin Kumar G            | User Researcher, Technical Analyst   |
+| 2023lm70041@wilp.bits-pilani.ac.in  | Sri Lakshmanan M          | Programmer, Tester                   |
+
 ---
  
 ## 🚀 Modules Overview
