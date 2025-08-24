@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-hospital text-3xl text-primary-600"></i>
+                    <h1 class="text-2xl font-bold text-primary-600">Healthcare Blood Bank</h1>
+                </div>
+                <div class="hidden md:block text-sm text-gray-600">
+                    Welcome, <span id="user-display" class="font-semibold text-primary-600">User</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-700 hover:text-primary-600 transition-colors">Home</a>
+                    <a href="#donate" class="nav-link text-gray-700 hover:text-primary-600 transition-colors">Donate</a>
+                    <a href="#about" class="nav-link text-gray-700 hover:text-primary-600 transition-colors">About</a>
+                    <a href="#contact" class="nav-link text-gray-700 hover:text-primary-600 transition-colors">Contact</a>
+                    <button onclick="logout()" class="text-gray-700 hover:text-primary-600 transition-colors font-medium">
+                        <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                    </button>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-primary-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-primary-600">Home</a>
+                <a href="#donate" class="block py-2 text-gray-700 hover:text-primary-600">Donate</a>
+                <a href="#about" class="block py-2 text-gray-700 hover:text-primary-600">About</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-primary-600">Contact</a>
+                <button onclick="logout()" class="block w-full text-left py-2 text-gray-700 hover:text-primary-600 font-medium">
+                    <i class="fas fa-sign-out-alt mr-2"></i>Logout
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-white">
+            <div class="container mx-auto px-6 text-center">
+                <div data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="text-5xl md:text-7xl font-bold text-primary-600 mb-6">
+                        Donate Blood, Save Lives
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                        Every drop counts. Join us in our mission to ensure no patient goes without the blood they need.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                        <button onclick="scrollToSection('donate')" class="btn-primary-hero">
+                            <i class="fas fa-heart mr-3"></i>
+                            Donate Now
+                        </button>
+                        <button onclick="scrollToSection('about')" class="btn-secondary-hero">
+                            <i class="fas fa-info-circle mr-3"></i>
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Statistics Section -->
+                <div class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div data-aos="fade-up" data-aos-delay="200" class="text-center">
+                        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                            <i class="fas fa-users text-5xl text-primary-500 mb-4"></i>
+                            <h3 class="text-3xl font-bold text-primary-600 mb-2">10,000+</h3>
+                            <p class="text-gray-600">Lives Saved</p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="400" class="text-center">
+                        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                            <i class="fas fa-tint text-5xl text-primary-500 mb-4"></i>
+                            <h3 class="text-3xl font-bold text-primary-600 mb-2">50,000+</h3>
+                            <p class="text-gray-600">Units Donated</p>
+                        </div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="600" class="text-center">
+                        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow">
+                            <i class="fas fa-hospital text-5xl text-primary-500 mb-4"></i>
+                            <h3 class="text-3xl font-bold text-primary-600 mb-2">100+</h3>
+                            <p class="text-gray-600">Partner Hospitals</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- Donate Section -->
+        <section id="donate" class="min-h-screen bg-white py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-6" data-aos="fade-up">
+                        <i class="fas fa-heartbeat text-2xl text-primary-600"></i>
+                    </div>
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-up">Patients Needing Blood</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto mb-6" data-aos="fade-up" data-aos-delay="200">
+                        These patients urgently need your help. Click the donate button to start the donation process.
+                    </p>
+                    <div class="w-24 h-1 bg-primary-500 mx-auto rounded-full" data-aos="fade-up" data-aos-delay="300"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="patients-grid">
+                    <!-- Patient cards will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="min-h-screen bg-gray-50 py-20">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                                    <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-up">About Healthcare Blood Bank</h2>
+                    <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="200">
+                        Connecting donors with patients in need
+                    </p>
+                </div>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                        <div data-aos="fade-right">
+                            <h3 class="text-2xl font-bold text-primary-600 mb-4">Our Mission</h3>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                To create a seamless bridge between blood donors and patients, ensuring that every individual 
+                                who needs blood receives it in time. We believe that access to safe blood should be a right, 
+                                not a privilege.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Through our platform, we connect compassionate donors with hospitals and patients, 
+                                making the donation process simple, transparent, and impactful.
+                            </p>
+                        </div>
+                        <div data-aos="fade-left">
+                            <h3 class="text-2xl font-bold text-primary-600 mb-4">Our Vision</h3>
+                            <p class="text-gray-700 leading-relaxed mb-6">
+                                A world where no patient dies due to lack of blood availability. We envision a future 
+                                where blood donation becomes a regular part of community health, creating a sustainable 
+                                and reliable blood supply network.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                We strive to build a community of regular donors who understand the life-saving impact 
+                                of their generosity and commitment.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mt-16 text-center">
+                        <h3 class="text-2xl font-bold text-primary-600 mb-8" data-aos="fade-up">Why Blood Donation Matters</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            <div data-aos="fade-up" data-aos-delay="200" class="bg-white p-6 rounded-xl shadow-md">
+                                <i class="fas fa-shield-alt text-4xl text-primary-500 mb-4"></i>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Safe & Regulated</h4>
+                                <p class="text-gray-600">All donations are screened and processed according to international standards</p>
+                            </div>
+                            <div data-aos="fade-up" data-aos-delay="400" class="bg-white p-6 rounded-xl shadow-md">
+                                <i class="fas fa-handshake text-4xl text-primary-500 mb-4"></i>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Community Impact</h4>
+                                <p class="text-gray-600">Your donation directly helps someone in your community</p>
+                            </div>
+                            <div data-aos="fade-up" data-aos-delay="600" class="bg-white p-6 rounded-xl shadow-md">
+                                <i class="fas fa-sync-alt text-4xl text-primary-500 mb-4"></i>
+                                <h4 class="text-lg font-semibold text-gray-800 mb-2">Regular Need</h4>
+                                <p class="text-gray-600">Blood is needed every 2 seconds, making regular donations crucial</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="min-h-screen bg-white py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-4" data-aos="fade-up">Contact Us</h2>
+                    <p class="text-xl text-gray-600 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                        Get in touch with us for any questions about blood donation or to report issues.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div data-aos="fade-right">
+                        <form id="contact-form" class="space-y-6">
+                            <div>
+                                <label for="contact-name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                                <input type="text" id="contact-name" name="name" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="contact-email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" id="contact-email" name="email" required 
+                                       class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                            </div>
+                            <div>
+                                <label for="contact-message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea id="contact-message" name="message" rows="5" required 
+                                          class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"></textarea>
+                            </div>
+                            <button type="submit" class="w-full bg-primary-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                    <div data-aos="fade-left">
+                        <div class="bg-gray-50 p-8 rounded-xl">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-map-marker-alt text-primary-600 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Address</h4>
+                                        <p class="text-gray-600">123 Medical Center Dr, Healthcare City, HC 12345</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-phone text-primary-600 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Phone</h4>
+                                        <p class="text-gray-600">+1 (555) 123-4567</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <i class="fas fa-envelope text-primary-600 text-xl"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Email</h4>
+                                        <p class="text-gray-600">info@bloodlife.org</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Google Maps Embed -->
+                        <!-- <div class="mt-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Location</h3>
+                            <div class="bg-gray-200 rounded-lg p-4 text-center">
+                                <i class="fas fa-map text-4xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-600">Google Maps integration would go here</p>
+                                <p class="text-sm text-gray-500">(In a real app, this would show an actual map)</p>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                                    <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-hospital text-3xl text-primary-400"></i>
+                    <h3 class="text-2xl font-bold text-primary-400">Healthcare Blood Bank</h3>
+                </div>
+                <p class="text-gray-300 mb-4 max-w-md">
+                    Connecting donors with patients in need. Every donation counts towards saving lives and building a healthier community.
+                </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-primary-400 transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-primary-400 transition-colors">Home</a></li>
+                        <li><a href="#donate" class="text-gray-300 hover:text-primary-400 transition-colors">Donate</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-primary-400 transition-colors">About</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-primary-400 transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>123 Medical Center Dr</li>
+                        <li>Healthcare City, HC 12345</li>
+                        <li>+1 (555) 123-4567</li>
+                        <li>info@healthcarebloodbank.org</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Healthcare Blood Bank. All rights reserved. | Saving lives, one donation at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Donation Modal -->
+    <div id="donation-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-2xl max-w-md w-full p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Donation Form</h3>
+                    <button type="button" onclick="closeDonationModal()" class="text-gray-500 hover:text-gray-700 transition-colors">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form id="donation-form" class="space-y-4">
+                    <div>
+                        <label for="donor-name" class="block text-sm font-medium text-gray-700 mb-1">Donor Name</label>
+                        <input type="text" id="donor-name" name="donorName" required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label for="donor-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" id="donor-email" name="donorEmail" required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label for="donor-phone" class="block text-sm font-medium text-gray-700 mb-1">Phone</label>
+                        <input type="tel" id="donor-phone" name="donorPhone" required 
+                               class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                    </div>
+                    <div>
+                        <label for="blood-group" class="block text-sm font-medium text-gray-700 mb-1">Blood Group</label>
+                        <select id="blood-group" name="bloodGroup" required 
+                                class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent">
+                            <option value="">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="donor-message" class="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                        <textarea id="donor-message" name="donorMessage" rows="3" 
+                                  class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"></textarea>
+                    </div>
+                    <div class="flex space-x-3 pt-4">
+                        <button type="submit" class="flex-1 bg-primary-600 text-white py-2 px-4 rounded-lg font-semibold hover:bg-primary-700 transition-colors">
+                            <i class="fas fa-heart mr-2"></i>Submit Donation
+                        </button>
+                        <button type="button" onclick="closeDonationModal()" class="flex-1 bg-gray-300 text-gray-700 py-2 px-4 rounded-lg font-semibold hover:bg-gray-400 transition-colors">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 

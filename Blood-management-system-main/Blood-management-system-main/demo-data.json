@@ -1,0 +1,133 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "age": 28,
+      "bloodGroup": "O+",
+      "hospital": "City General Hospital",
+      "urgency": "critical",
+      "urgencyText": "Critical",
+      "condition": "Severe blood loss from accident",
+      "unitsNeeded": 3,
+      "contact": "+1 (555) 123-4567"
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "age": 45,
+      "bloodGroup": "A-",
+      "hospital": "Memorial Medical Center",
+      "urgency": "high",
+      "urgencyText": "High",
+      "condition": "Surgery scheduled for tomorrow",
+      "unitsNeeded": 2,
+      "contact": "+1 (555) 234-5678"
+    },
+    {
+      "id": 3,
+      "name": "Emily Rodriguez",
+      "age": 32,
+      "bloodGroup": "B+",
+      "hospital": "St. Mary's Hospital",
+      "urgency": "medium",
+      "urgencyText": "Medium",
+      "condition": "Chemotherapy treatment",
+      "unitsNeeded": 1,
+      "contact": "+1 (555) 345-6789"
+    },
+    {
+      "id": 4,
+      "name": "David Thompson",
+      "age": 56,
+      "bloodGroup": "AB+",
+      "hospital": "Regional Medical Center",
+      "urgency": "high",
+      "urgencyText": "High",
+      "condition": "Heart surgery complications",
+      "unitsNeeded": 4,
+      "contact": "+1 (555) 456-7890"
+    },
+    {
+      "id": 5,
+      "name": "Lisa Wang",
+      "age": 29,
+      "bloodGroup": "O-",
+      "hospital": "University Hospital",
+      "urgency": "critical",
+      "urgencyText": "Critical",
+      "condition": "Emergency delivery complications",
+      "unitsNeeded": 2,
+      "contact": "+1 (555) 567-8901"
+    },
+    {
+      "id": 6,
+      "name": "Robert Davis",
+      "age": 38,
+      "bloodGroup": "A+",
+      "hospital": "Community Health Center",
+      "urgency": "low",
+      "urgencyText": "Low",
+      "condition": "Regular transfusion needed",
+      "unitsNeeded": 1,
+      "contact": "+1 (555) 678-9012"
+    }
+  ],
+  "donors": [
+    {
+      "id": 1,
+      "name": "John Smith",
+      "email": "john.smith@email.com",
+      "phone": "+1 (555) 111-2222",
+      "bloodGroup": "O+",
+      "patientName": "Sarah Johnson",
+      "date": "2024-01-15",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "name": "Maria Garcia",
+      "email": "maria.garcia@email.com",
+      "phone": "+1 (555) 222-3333",
+      "bloodGroup": "A-",
+      "patientName": "Michael Chen",
+      "date": "2024-01-16",
+      "status": "scheduled"
+    },
+    {
+      "id": 3,
+      "name": "James Wilson",
+      "email": "james.wilson@email.com",
+      "phone": "+1 (555) 333-4444",
+      "bloodGroup": "B+",
+      "patientName": "Emily Rodriguez",
+      "date": "2024-01-17",
+      "status": "pending"
+    }
+  ],
+  "statistics": {
+    "totalPatients": 6,
+    "totalDonors": 3,
+    "criticalCases": 2,
+    "highPriority": 2,
+    "mediumPriority": 1,
+    "lowPriority": 1,
+    "totalUnitsNeeded": 13,
+    "bloodGroupDistribution": {
+      "O+": 1,
+      "A-": 1,
+      "B+": 1,
+      "AB+": 1,
+      "O-": 1,
+      "A+": 1
+    }
+  },
+  "hospitals": [
+    "City General Hospital",
+    "Memorial Medical Center",
+    "St. Mary's Hospital",
+    "Regional Medical Center",
+    "University Hospital",
+    "Community Health Center"
+  ]
+} 

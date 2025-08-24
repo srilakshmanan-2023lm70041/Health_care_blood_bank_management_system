@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Test - Healthcare Blood Bank</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 10px 20px; margin: 5px; background: #dc2626; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #b91c1c; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .success { background: #d1fae5; color: #065f46; }
+        .error { background: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body>
+    <h1>Healthcare Blood Bank - Login System Test</h1>
+    
+    <div class="test-section">
+        <h2>Current Status</h2>
+        <div id="status-display">Loading...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Test Actions</h2>
+        <button onclick="testLogin()">Test Login (123/123)</button>
+        <button onclick="testLogout()">Test Logout</button>
+        <button onclick="checkStatus()">Check Current Status</button>
+        <button onclick="clearStorage()">Clear All Storage</button>
+        <button onclick="goToLogin()">Go to Login Page</button>
+        <button onclick="goToMain()">Go to Main App</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>LocalStorage Contents</h2>
+        <div id="storage-display">Loading...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Console Logs</h2>
+        <p>Open browser console (F12) to see detailed logs</p>
+    </div>
+
+    <script>
+        // Test functions
+        function testLogin() {
+            console.log('Testing login...');
+            localStorage.setItem('isLoggedIn', 'true');
+            localStorage.setItem('username', '123');
+            checkStatus();
+        }
+        
+        function testLogout() {
+            console.log('Testing logout...');
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            checkStatus();
+        }
+        
+        function checkStatus() {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const username = localStorage.getItem('username');
+            
+            const statusDiv = document.getElementById('status-display');
+            if (isLoggedIn === 'true') {
+                statusDiv.innerHTML = `<div class="status success">✅ Logged In as: ${username}</div>`;
+            } else {
+                statusDiv.innerHTML = `<div class="status error">❌ Not Logged In</div>`;
+            }
+            
+            updateStorageDisplay();
+        }
+        
+        function clearStorage() {
+            console.log('Clearing storage...');
+            localStorage.clear();
+            checkStatus();
+        }
+        
+        function goToLogin() {
+            window.location.href = 'login.html';
+        }
+        
+        function goToMain() {
+            window.location.href = 'index.html';
+        }
+        
+        function updateStorageDisplay() {
+            const storageDiv = document.getElementById('storage-display');
+            let html = '<ul>';
+            for (let i = 0; i < localStorage.length; i++) {
+                const key = localStorage.key(i);
+                const value = localStorage.getItem(key);
+                html += `<li><strong>${key}:</strong> ${value}</li>`;
+            }
+            html += '</ul>';
+            storageDiv.innerHTML = html;
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Test page loaded');
+            checkStatus();
+        });
+    </script>
+</body>
+</html> 
